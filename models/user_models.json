@@ -1,0 +1,416 @@
+[
+  {
+    "ID": "cubic",
+    "Name": "cubic",
+    "Description": "Cubic fit. (approximation for membranes with pre-stress)",
+    "Category": "Membrane Indentation",
+    "YName": "F",
+    "YDescription": "",
+    "YUnit": "N",
+    "XDescription": "",
+    "XUnit": "m",
+    "ParameterLBounds": "-Inf -Inf",
+    "ParameterUBounds": "Inf  Inf",
+    "ParameterDescription": [],
+    "ParameterUnits": [
+      "N/m",
+      "Pa/m"
+    ],
+    "ParameterValues": "NaN  NaN",
+    "XName": "x",
+    "Parameters": [
+      "k",
+      "K"
+    ],
+    "Coefficients": [
+      "k",
+      "K"
+    ],
+    "CoeffUnits": [
+      "N/m",
+      "Pa/m"
+    ],
+    "Function": [
+      "x",
+      "x.^3"
+    ]
+  },
+  {
+    "ID": "SolMem_PointIndent_A",
+    "Name": "Solid Membrane Point-like indenter (a)",
+    "Description": "Indentation of Solid Membrane with pre-tension, point-like indenter, const. stress bound. cond.",
+    "Category": "Membrane Indentation/Solid Membrane",
+    "YName": "F",
+    "YDescription": "",
+    "YUnit": "N",
+    "XDescription": "",
+    "XUnit": "m",
+    "ParameterLBounds": "0  0  0  0",
+    "ParameterUBounds": "Inf  Inf  Inf  Inf",
+    "ParameterDescription": [
+      "Prestress",
+      "3D Elastic modulus",
+      "film thickness",
+      "hole radius"
+    ],
+    "ParameterUnits": [
+      "N/m",
+      "Pa",
+      "m",
+      "m"
+    ],
+    "ParameterValues": "NaN  NaN  NaN  NaN",
+    "XName": "",
+    "Parameters": "",
+    "Coefficients": "",
+    "CoeffUnits": "",
+    "Function": "@(sigma,E,d,R,x)membraneIndent_pointIndent_const_N_d(x,sigma,E,d,R)"
+  },
+  {
+    "ID": "SolMem_PointIndent_B",
+    "Name": "Solid Membrane spherical indenter",
+    "Description": "Indentation of Solid Membrane with pre-tension, spherical indenter, const. stress bound. cond.",
+    "Category": "Membrane Indentation/Solid Membrane",
+    "YName": "F",
+    "YDescription": "",
+    "YUnit": "N",
+    "XDescription": "",
+    "XUnit": "m",
+    "ParameterLBounds": "0  0  0  0  0",
+    "ParameterUBounds": "Inf  Inf  Inf  Inf  Inf",
+    "ParameterDescription": [
+      "Prestress",
+      "3D Elastic modulus",
+      "film thickness",
+      "hole radius",
+      "Poisson number"
+    ],
+    "ParameterUnits": [
+      "N/m",
+      "Pa",
+      "m",
+      "m",
+      ""
+    ],
+    "ParameterValues": "NaN  NaN  NaN  NaN  NaN",
+    "XName": "",
+    "Parameters": "",
+    "Coefficients": "",
+    "CoeffUnits": "",
+    "Function": "@(sigma,E,d,R,psn,x)membraneIndent_pointIndent_const_u_d(x,sigma,E,d,R,psn)"
+  },
+  {
+    "ID": "FluidMem_SpheIndent",
+    "Name": "Fluid membrane spherical indenter",
+    "Description": "Indentation of Fluid membrane without elasticity, spherical indenter",
+    "Category": "Membrane Indentation/Fluid Membrane",
+    "YName": "F",
+    "YDescription": "",
+    "YUnit": "N",
+    "XDescription": "",
+    "XUnit": "m",
+    "ParameterLBounds": "0  0  0",
+    "ParameterUBounds": "Inf  Inf  Inf",
+    "ParameterDescription": [
+      "Prestress",
+      "hole radius",
+      "tip radius"
+    ],
+    "ParameterUnits": [
+      "N/m",
+      "m",
+      "m"
+    ],
+    "ParameterValues": "NaN  NaN  NaN",
+    "XName": "",
+    "Parameters": "",
+    "Coefficients": "",
+    "CoeffUnits": "",
+    "Function": "@(sigma,R,r,x)FluidMembraneIndent.Spherical_F(x,sigma,r,R)"
+  },
+  {
+    "ID": "FluidElasMem_SpheIndent",
+    "Name": "Fluid elastic membrane spherical indenter",
+    "Description": "Fluid membrane with tension and elasticity, spherical indenter",
+    "Category": "Membrane Indentation/Fluid Membrane",
+    "YName": "F",
+    "YDescription": "",
+    "YUnit": "N",
+    "XDescription": "",
+    "XUnit": "m",
+    "ParameterLBounds": "0  0  0  0  0",
+    "ParameterUBounds": "Inf  Inf  Inf  Inf  Inf",
+    "ParameterDescription": [
+      "Prestress",
+      "3D Elastic modulus",
+      "film thickness",
+      "hole radius",
+      "tip radius"
+    ],
+    "ParameterUnits": [
+      "N/m",
+      "Pa",
+      "m",
+      "m",
+      "m"
+    ],
+    "ParameterValues": "NaN  NaN  NaN  NaN  NaN",
+    "XName": "",
+    "Parameters": "",
+    "Coefficients": "",
+    "CoeffUnits": "",
+    "Function": "@(sigma,E,d,R,r,x)FluidMembraneIndent.Spherical_FE(x,E*d,sigma,r,R)"
+  },
+  {
+    "ID": "FluidMem_CylIndent",
+    "Name": "Fluid membrane cylindrical indenter",
+    "Description": "Fluid membrane without elasticity, cylindrical indenter",
+    "Category": "Membrane Indentation/Fluid Membrane",
+    "YName": "F",
+    "YDescription": "",
+    "YUnit": "N",
+    "XDescription": "",
+    "XUnit": "m",
+    "ParameterLBounds": "0  0  0",
+    "ParameterUBounds": "Inf  Inf  Inf",
+    "ParameterDescription": [
+      "Prestress",
+      "hole radius",
+      "tip radius"
+    ],
+    "ParameterUnits": [
+      "N/m",
+      "m",
+      "m"
+    ],
+    "ParameterValues": "NaN  NaN  NaN",
+    "XName": "",
+    "Parameters": "",
+    "Coefficients": "",
+    "CoeffUnits": "",
+    "Function": "@(sigma,R,r,x)FluidMembraneIndent.Cylindrical_F(x,sigma,r,R)"
+  },
+  {
+    "ID": "FluidElasMem_CylIndent",
+    "Name": "Fluid elastic membrane cylindrical indenter",
+    "Description": "Fluid membrane with tension and elasticity, cylindrical indenter",
+    "Category": "Membrane Indentation/Fluid Membrane",
+    "YName": "F",
+    "YDescription": "",
+    "YUnit": "N",
+    "XDescription": "",
+    "XUnit": "m",
+    "ParameterLBounds": "0  0  0  0  0",
+    "ParameterUBounds": "Inf  Inf  Inf  Inf  Inf",
+    "ParameterDescription": [
+      "Prestress",
+      "3D Elastic modulus",
+      "film thickness",
+      "hole radius",
+      "tip radius"
+    ],
+    "ParameterUnits": [
+      "N/m",
+      "Pa",
+      "m",
+      "m",
+      "m"
+    ],
+    "ParameterValues": "NaN  NaN  NaN  NaN  NaN",
+    "XName": "",
+    "Parameters": "",
+    "Coefficients": "",
+    "CoeffUnits": "",
+    "Function": "@(sigma,E,d,R,r,x)FluidMembraneIndent.Cylindrical_FE(x,E*d,sigma,r,R)"
+  },
+  {
+    "ID": "FluidMem_ConicIndent",
+    "Name": "Fluid membrane conical indenter",
+    "Description": "Fluid membrane without elasticity, conical indenter",
+    "Category": "Membrane Indentation/Fluid Membrane",
+    "YName": "F",
+    "YDescription": "",
+    "YUnit": "N",
+    "XDescription": "",
+    "XUnit": "m",
+    "ParameterLBounds": "0  0  0",
+    "ParameterUBounds": "Inf  Inf  Inf",
+    "ParameterDescription": [
+      "Prestress",
+      "hole radius",
+      "tip angle"
+    ],
+    "ParameterUnits": [
+      "N/m",
+      "m",
+      "deg"
+    ],
+    "ParameterValues": "NaN  NaN  NaN",
+    "XName": "",
+    "Parameters": "",
+    "Coefficients": "",
+    "CoeffUnits": "",
+    "Function": "@(sigma,R,alpha,x)FluidMembraneIndent.Conical_F(x,sigma,alpha/180*pi,R)"
+  },
+  {
+    "ID": "FluidElasMem_ConicIndent",
+    "Name": "Fluid elastic membrane conical indenter",
+    "Description": "Fluid membrane with tension and elasticity, conical indenter",
+    "Category": "Membrane Indentation/Fluid Membrane",
+    "YName": "F",
+    "YDescription": "",
+    "YUnit": "N",
+    "XDescription": "",
+    "XUnit": "m",
+    "ParameterLBounds": "0  0  0  0  0",
+    "ParameterUBounds": "Inf  Inf  Inf  Inf  Inf",
+    "ParameterDescription": [
+      "Prestress",
+      "3D Elastic modulus",
+      "film thickness",
+      "hole radius",
+      "tip angle"
+    ],
+    "ParameterUnits": [
+      "N/m",
+      "Pa",
+      "m",
+      "m",
+      "deg"
+    ],
+    "ParameterValues": "NaN  NaN  NaN  NaN  NaN",
+    "XName": "",
+    "Parameters": "",
+    "Coefficients": "",
+    "CoeffUnits": "",
+    "Function": "@(sigma,E,d,R,alpha,x)FluidMembraneIndent.Conical_FE(x,E*d,sigma,alpha/180*pi,R)"
+  },
+  {
+    "ID": "NonLinTest",
+    "Name": "Cubic Nonlin-test",
+    "Description": "Test model for a simple cubic model fitted as nonlinear model.",
+    "Category": [],
+    "YName": "F",
+    "YDescription": "",
+    "YUnit": "N",
+    "XDescription": "",
+    "XUnit": "m",
+    "ParameterLBounds": "0  0",
+    "ParameterUBounds": "Inf  Inf",
+    "ParameterDescription": [
+      [],
+      []
+    ],
+    "ParameterUnits": [
+      "N/m",
+      "Pa/m"
+    ],
+    "ParameterValues": "NaN  NaN",
+    "XName": "",
+    "Parameters": "",
+    "Coefficients": "",
+    "CoeffUnits": "",
+    "Function": "@(k,K,x)k.*x+K*x.^3"
+  },
+  {
+    "ID": "DMT",
+    "Name": "DMT model for tip indentation",
+    "Description": "DMT model for tip indentation, used for soft contact",
+    "Category": "Indentation",
+    "YName": "F",
+    "YDescription": "",
+    "YUnit": "N",
+    "XDescription": "",
+    "XUnit": "m",
+    "ParameterLBounds": "0  0  0  0",
+    "ParameterUBounds": "Inf  Inf  Inf  Inf",
+    "ParameterDescription": [
+      "Adhesion force",
+      "3D Elastic modulus",
+      "Poisson number",
+      "tip radius"
+    ],
+    "ParameterUnits": [
+      "N",
+      "Pa",
+      "",
+      "m"
+    ],
+    "ParameterValues": "NaN  NaN  NaN  NaN",
+    "XName": "",
+    "Parameters": "",
+    "Coefficients": "",
+    "CoeffUnits": "",
+    "Function": "@(F_a,E,nu,r,x)4/3*E./(1-nu^2).*sqrt(r)*x.^(3/2)+F_a"
+  },
+  {
+    "ID": "defl_sens",
+    "Name": "Linear fit for defls sens",
+    "Description": [
+      "Linear fit for deflection sensitivity determination"
+    ],
+    "Category": "",
+    "YName": "D",
+    "YDescription": "",
+    "YUnit": "V",
+    "XDescription": "",
+    "XUnit": "m",
+    "ParameterLBounds": "0 -Inf",
+    "ParameterUBounds": "Inf  Inf",
+    "ParameterDescription": [
+      "Defl.sens.",
+      "Defl at height 0"
+    ],
+    "ParameterUnits": [
+      "m/V",
+      "V"
+    ],
+    "ParameterValues": "1e-07         0.1",
+    "XName": "",
+    "Parameters": "",
+    "Coefficients": "",
+    "CoeffUnits": "",
+    "Function": "@(ds,D0,x)x/(-ds)+D0"
+  },
+  {
+    "ID": "linear",
+    "Name": "Basic linear fit",
+    "Description": [
+      ""
+    ],
+    "Category": "Basic",
+    "YName": "y",
+    "YDescription": "",
+    "YUnit": "N",
+    "XDescription": "",
+    "XUnit": "m",
+    "ParameterLBounds": "-Inf -Inf",
+    "ParameterUBounds": "Inf  Inf",
+    "ParameterDescription": [
+      "",
+      ""
+    ],
+    "ParameterUnits": [
+      "N/m",
+      "N"
+    ],
+    "ParameterValues": "NaN  NaN",
+    "XName": "x",
+    "Parameters": [
+      "a",
+      "b"
+    ],
+    "Coefficients": [
+      "a",
+      "b"
+    ],
+    "CoeffUnits": [
+      "N/m",
+      "N"
+    ],
+    "Function": [
+      "x",
+      "1"
+    ]
+  }
+]
